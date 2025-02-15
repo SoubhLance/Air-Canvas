@@ -1,25 +1,41 @@
 # Air-Canvas
 
-
-Air Canvas is an interactive application that allows users to draw on a virtual canvas using a colored marker or any object with a distinctive color. The application utilizes computer vision techniques to detect the colored object and track its movement, enabling the user to draw in the air. This project is a fun way to explore the basics of image processing and computer vision using Python and OpenCV.
-
+Air Canvas is an interactive application that allows users to draw on a virtual canvas using a colored marker or object with distinctive color. The app uses OpenCV for real-time color detection, enabling users to create drawings in mid-air.
 
 ## Features
-
-- Draw on a virtual canvas using a colored marker.
-- Change drawing colors with a simple gesture.
-- Clear the canvas with a specific gesture.
-- Adjustable HSV color range for precise marker detection.
-- Real-time drawing on the canvas displayed in a separate window.
+- Draw using a colored marker tracked via webcam.
+- Switch colors or clear the canvas with gestures.
+- Adjustable HSV range for precise color detection.
+- Real-time drawing displayed in a separate window.
 
 ## Requirements
-
-- Python 3 {3.11.4 is used here specifically}
+- Python 3.11.4
 - OpenCV
 - Numpy
-- Deque
+- Deque (from collections)
 
 ## Working
-The Air Canvas code is an interactive drawing application that allows users to draw in the air using a colored marker tracked by a webcam. Using OpenCV, the program creates trackbars to adjust the HSV (Hue, Saturation, Value) values, defining the marker's color range. It employs four deque objects to store drawing points for blue, green, red, and yellow markers. The on-screen interface lets users select these colors or clear the canvas.
+The webcam captures frames, tracks a specific color in HSV space, and detects movements for drawing. Users can select colors or clear the canvas through specific gestures, and the drawing is continuously updated on the canvas. Press 'q' to exit.
 
-The canvas starts as a white window with color selection and clear buttons. The webcam captures frames, flips them, and converts them to HSV color space. A mask is created to detect the marker within the specified HSV range, followed by morphological operations to clean up the mask. Contours are identified to locate the marker's position. If the marker is detected within the button area, it triggers the corresponding action (color change or clear). Otherwise, the marker's position is recorded, and lines are drawn on the frame and canvas based on the selected color. The application runs in a loop, updating the drawings in real-time until the user exits by pressing 'q'.
+## Installation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/SoubhLance/Air-Canvas.git
+2. Install dependencies:
+   ```bash
+   pip install opencv-python numpy
+
+
+## Usage
+```bash
+python air_canvas.py
+```
+## Contribution
+Feel free to contribute by submitting issues or suggesting features!
+
+## License
+```css
+This README provides a clear overview and instructions for the project. Feel free to adjust it as necessary!
+```
+
+
